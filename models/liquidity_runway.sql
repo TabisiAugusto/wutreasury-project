@@ -1,12 +1,11 @@
 {{ config(materialized='table') }}
-
 WITH transacciones_validas AS (
     SELECT 
-        CAST(timestamp AS DATETIME) AS fecha_operacion,
-        destino AS sucursal_destino,
+        fecha_operacion,      
+        sucursal_destino,    
         monto_usd
-    FROM `wu-treasury-portfolio.remesas_dataset.transacciones_realistas`
-    WHERE estado = 'Completado' 
+    FROM {{ ref('stg_transacciones') }}
+    WHERE estado_transaccion = 'Completado' 
 ),
 
 retiros_por_hora AS (
