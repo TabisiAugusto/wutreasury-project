@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: remesas_dataset
+    database: wu-treasury-portfolio
+    schema: remesas_dataset
+    tables:
+      - name: transacciones_realistas
+        description: "Tabla cruda con transacciones generadas desde Google Colab"

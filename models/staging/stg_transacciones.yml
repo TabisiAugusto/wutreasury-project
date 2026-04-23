@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_transacciones
+    description: "Modelo base de transacciones limpias y formateadas."
+    columns:
+      - name: id_transaccion
+        tests:
+          - unique
+          - not_null
+      - name: sucursal_destino
+        tests:
+          - not_null
+      - name: monto_usd
+        tests:
+          - not_null
+      - name: estado_transaccion
+        tests:
+          - not_null
